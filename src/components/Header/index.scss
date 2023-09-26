@@ -1,0 +1,43 @@
+@use "../../sass/variables" as *;
+
+
+.header{    
+    background-image: linear-gradient( $fire-green,$fire-ngreen, #fff);
+    display: flex;        
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-bottom: solid 1px #c1c1c1;
+    
+    img{
+        margin:10px 20px;
+        height:60px; 
+        box-shadow: $fire-gray 4px 4px 5px;
+    }
+
+    ul{
+        width: 100%;
+        list-style: none;        
+        display: flex;                
+        align-items: center;        
+        justify-content: flex-start;
+
+        li{    
+            display: flex;
+            margin:0px;    
+        }
+
+        a{            
+            color: $fire-gray;
+            text-decoration: none;
+            font-size: 30px;
+            transform: translateY(20px);            
+        }
+        a:hover{
+            background-color: #ffffff41;
+            color:#303030;            
+            
+        }
+    }
+
+    
+}
