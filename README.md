@@ -1,18 +1,18 @@
-# Fire Development - Biblioteca Online
+# Fire Development - Library Online
 
-Aplicativo web de biblioteca online para cadastrar livros
+Online library web
+
 # LINK
 
-Em construção...
+...
 
-## Status do Projeto 
+## Status
 
-O projeto está em planejamento, configurando o ambiente.
+Project connected to the API, missing delete and edit buttons and user login
 
+## Installation
 
-## Instalação
-
-Instale Node.js e npm para usar o repositório, além do pacote React Router e Sass
+Install Node and npm to teste the project
 
 ```bash
 npm create vite@latest name-of-your-project -- --template react
@@ -27,18 +27,18 @@ npm run dev
   Network: use --host to expose
 ```
     
-## Tecnologias
+## Techs
 
 - [React](https://reactjs.org/)
 - [Noje.js](https://nodejs.org/en)
 - [Express.js](https://expressjs.com/pt-br/)
 - [Sass](https://sass-lang.com/)
 
-## Banco de Dados NoSQL
+## Database NoSQL
 
 - [MongoDB](https://www.mongodb.com/)
   
-## Pacotes 
+## Packages 
 
 - [React Router](https://reactrouter.com/en/main)
 - [Mongoose & Mongoose to Swagger](https://mongoosejs.com/)
@@ -49,6 +49,6 @@ npm run dev
 - [JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
 
 
-## Contato
+## Contact
 
-Para entrar em contato com o desenvolvedor, envie um e-mail para renanfranca.dev@gmail.com ou acesse o perfil do [GitHub](https://github.com/RenanFrancaDev) e [Linkedin](https://www.linkedin.com/in/renan-franca/)
+Send an email to renanfranca.dev@gmail.com or visit the [GitHub](https://github.com/RenanFrancaDev) and [Linkedin](https://www) profile .linkedin.com/in/renan-franca/)
