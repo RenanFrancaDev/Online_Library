@@ -4,11 +4,11 @@ Online library web
 
 # LINK
 
-https://biblioteca-wine.vercel.app/livros
+https://biblioteca-wine.vercel.app/
 
 ## Status
 
-Project connected to the API, missing delete and edit buttons and user login
+Project connected to the API, missing route to sign up.
 
 ## Installation
 
@@ -51,4 +51,4 @@ npm run dev
 
 ## Contact
 
-Send an email to renanfranca.dev@gmail.com or visit the [GitHub](https://github.com/RenanFrancaDev) and [Linkedin](https://www) profile .linkedin.com/in/renan-franca/)
+Send an email to renanfranca.dev@gmail.com or visit the [GitHub](https://github.com/RenanFrancaDev) and [Linkedin](https://www.linkedin.com/in/renan-franca/)
