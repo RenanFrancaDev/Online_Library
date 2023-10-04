@@ -8,6 +8,7 @@ import './index.scss';
 import Home from './views/Home/Home';
 import Books from './views/Books/Books';
 import BookEdit from './views/EditBook/BookEdit';
+import BookRegister from './views/RegisterBook/BookRegister';
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: "books/book-edit/:bookId",
     element: <BookEdit/>,
   },
+  {
+    path: "books/register",
+    element: <BookRegister/>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
