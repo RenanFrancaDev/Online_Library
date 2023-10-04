@@ -7,6 +7,7 @@ import {
 import './index.scss';
 import Home from './views/Home/Home';
 import Books from './views/Books/Books';
+import BookEdit from './views/EditBook/BookEdit';
 
 
 const router = createBrowserRouter([
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/books",
     element: <Books/>,
+  },
+  {
+    path: "books/book-edit/:bookId",
+    element: <BookEdit/>,
   },
 ]);
 
