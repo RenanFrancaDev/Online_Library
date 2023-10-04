@@ -13,7 +13,7 @@ const BookEdit = () => {
 
   async function getBook(){
     const {data} = await BookService.getBook(bookId);
-    setBook(data.resposta);
+    setBook(data.response);
   }
 
   async function editBook(){

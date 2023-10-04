@@ -11,7 +11,7 @@ const Books = () => {
 
   async function getBooks(){
     const {data} = await BookService.getBooks();
-    const response = data.resposta;
+    const response = data.response;
     setBooks(response);
     console.log(books);
   }
@@ -39,7 +39,7 @@ const Books = () => {
     <Header/>    
     <Submenu/>
     <div className='books'>
-        <h1>What book would you like to read today</h1>        
+        <h1>What book would you like to read today?</h1>        
         <ul>
         {books.map((book) =>(
           <li key={book._id}>

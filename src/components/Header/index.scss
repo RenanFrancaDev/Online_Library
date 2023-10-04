@@ -24,16 +24,14 @@
 
         li{    
             display: flex;
-            margin:0px;    
-        }
-
-        a{            
+            margin:0px;   
             color: $fire-gray;
             text-decoration: none;
             font-size: 30px;
-            transform: translateY(20px);            
+            transform: translateY(20px);   
         }
-        a:hover{
+
+        li:hover{
             background-color: #ffffff41;
             color:#303030;            
             
