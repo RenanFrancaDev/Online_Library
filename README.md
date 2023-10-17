@@ -5,7 +5,7 @@ Online library where you can add and remove literature hits.
 user: Visitant
 password: 123
 
-![App Screenshot](https://github.com/RenanFrancaDev/Online_Library/tree/main/src/assets/Library.png)
+![App Screenshot](https://github.com/RenanFrancaDev/Online_Library/blob/main/src/assets/Library.png)
 
 # LINK
 
