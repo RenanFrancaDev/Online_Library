@@ -15,16 +15,16 @@
     }
 
     ul{
-        width: 90%;
-        align-items: center;
+        width: 100%;
         list-style: none;
         display: flex;
-        justify-content:space-between;
+        justify-content:flex-start;
         align-items:center;
         flex-wrap: wrap;
+        gap: 2%;
 
         li{                 
-            margin:10px; 
+            margin: 10px 0 0 3%; 
             border: 1px solid rgb(255, 255, 255);      
             border-radius: 5px;            
             background-color: white;
