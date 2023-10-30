@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useMemo} from 'react'
 import Header from '../../components/Header/Header'
 import "./index.scss"
 import BookService from '../../api/BookService'
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 const BookRegister = () => {
   
   const [book, setBook] = useState([])
+  const collection = useMemo(() => book, [])
+
 
   async function createBook(){
     const body = {
@@ -32,7 +34,7 @@ const BookRegister = () => {
 
   useEffect(() => {
     createBook()    
-  },[]) 
+  },[collection]) 
 
   return (
   <>
