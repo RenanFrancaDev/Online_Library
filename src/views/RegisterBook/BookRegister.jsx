@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 const BookRegister = () => {
   
   const [book, setBook] = useState([])
-  const collection = useRef(book)
 
 
   async function createBook(){
@@ -34,7 +33,7 @@ const BookRegister = () => {
 
   useEffect(() => {
     createBook()    
-  },[collection]) 
+  },[]) 
 
   return (
   <>
