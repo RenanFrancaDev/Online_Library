@@ -8,17 +8,19 @@
     align-items: flex-start;
     padding:0px 10%;
     font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
 
     h1{
         margin: 30px auto;
     }
 
     ul{
-        width: 100%;
+        width: 90%;
+        align-items: center;
         list-style: none;
         display: flex;
-        justify-content:flex-startv;
-        align-items: flex-start;
+        justify-content:space-between;
+        align-items:center;
         flex-wrap: wrap;
 
         li{                 
