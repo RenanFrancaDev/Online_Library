@@ -1,4 +1,4 @@
-import {useEffect , useState} from 'react'
+import {useEffect , useRef, useState} from 'react'
 import Header from '../../components/Header/Header'
 import "./index.scss"
 import Submenu from '../../components/Submenu/Submenu'
@@ -8,6 +8,7 @@ import {Link} from "react-router-dom"
 const Books = () => {
 
   const [books, setBooks] = useState([])
+  const collection = useRef(books)
 
   async function getBooks(){
     const {data} = await BookService.getBooks();
@@ -32,7 +33,7 @@ const Books = () => {
 
   useEffect(() => {
     getBooks()    
-  },[])  
+  },[collection])  
 
   return (
   <>
