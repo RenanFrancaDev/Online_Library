@@ -1,6 +1,7 @@
 # Fire Development - Library Online
 
 Online library where you can add and remove literature hits.
+Project Full Stack, MongoDB, NodeJs and React.
 
 user: Visitant
 password: 123
@@ -10,6 +11,12 @@ password: 123
 # LINK
 
 https://biblioteca-wine.vercel.app/
+
+# Back-End
+
+[Repository](https://github.com/RenanFrancaDev/library_api) 
+
+[Deploy](https://biblioteca-api-rho.vercel.app/doc/)
 
 ## Status
 
