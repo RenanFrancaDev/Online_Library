@@ -1,96 +1,155 @@
-import {useState} from 'react'
-import Header from '../../components/Header/Header'
-import "./index.scss"
-import BookService from '../../api/BookService'
-import Submenu from '../../components/Submenu/Submenu'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import Header from "../../components/Header/Header";
+import "./index.scss";
+import BookService from "../../api/BookService";
+import Submenu from "../../components/Submenu/Submenu";
+import { useNavigate } from "react-router-dom";
 
 const BookRegister = () => {
-  
-  const [book, setBook] = useState([])
-  const navigate = useNavigate()
+  const [book, setBook] = useState([]);
+  const navigate = useNavigate();
 
-  
-  const[isOpenModal, setIsOpenModal] = useState(false)
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const openModal = () => {
-    setIsOpenModal(true)
-  }
+  const openModal = (e) => {
+    e.preventDefault();
+    if (
+      book.title != undefined &&
+      book.title != "" &&
+      book.pages != undefined &&
+      book.pages != "" &&
+      book.isbn != undefined &&
+      book.isbn != "" &&
+      book.publisher != undefined &&
+      book.publisher != ""
+    ) {
+      setIsOpenModal(true);
+    }
+  };
 
   const closeModal = () => {
-    setIsOpenModal(false)
-  }
+    setIsOpenModal(false);
+  };
 
-  async function createBook(){
+  async function createBook(e) {
+    e.preventDefault()
     const body = {
-            title: book.title,
-            synopsis: book.synopsis,
-            pages: Number(book.pages),
-            isbn: book.isbn,
-            publisher: book.publisher,
-            img: book.img
-      }
+      title: book.title,
+      synopsis: book.synopsis,
+      pages: Number(book.pages),
+      isbn: book.isbn,
+      publisher: book.publisher,
+      img: book.img,
+    };
 
-    if(book.title!=undefined && book.title!='' && book.pages!=undefined && book.pages!='' && book.isbn !=undefined && book.isbn !='' && book.publisher !=undefined && book.publisher !=''){
-      const {data} = await BookService.createBook(body)
-        alert(data.statusMensagem);
+    if (
+      book.title != undefined &&
+      book.title != "" &&
+      book.pages != undefined &&
+      book.pages != "" &&
+      book.isbn != undefined &&
+      book.isbn != "" &&
+      book.publisher != undefined &&
+      book.publisher != ""
+    ) {
+      const { data } = await BookService.createBook(body);
+      alert(data.statusMensagem);
     }
-    navigate("/books")
+    navigate("/books");
   }
 
   return (
-  <>
-    <Header/>    
-    <Submenu/>
-    <div className='container_register'>
+    <>
+      <Header />
+      <Submenu />
+      <div className="container_register">
         <h1>Book Edit</h1>
         <div>
           <form>
-            <div className='form-group'>
+            <div className="form-group">
               <label>Title*</label>
-              <input type="text" required onChange={(event)=>{ setBook({...book, title: event.target.value})}} value={book.title || ''} ></input>
+              <input
+                type="text"
+                required
+                onChange={(event) => {
+                  setBook({ ...book, title: event.target.value });
+                }}
+                value={book.title || ""}
+              ></input>
             </div>
-            <div className='form-group'>
+            <div className="form-group">
               <label>Synopsis</label>
-              <input type="text" onChange={(event)=>{ setBook({...book, synopsis: event.target.value})}} value={book.synopsis || ''} ></input>
+              <input
+                type="text"
+                onChange={(event) => {
+                  setBook({ ...book, synopsis: event.target.value });
+                }}
+                value={book.synopsis || ""}
+              ></input>
             </div>
-            <div className='form-group'>
+            <div className="form-group">
               <label>Number pages*</label>
-              <input type="text"  required onChange={(event)=>{ setBook({...book, pages: event.target.value})}} value={book.pages || ''}></input>
+              <input
+                type="text"
+                required
+                onChange={(event) => {
+                  setBook({ ...book, pages: event.target.value });
+                }}
+                value={book.pages || ""}
+              ></input>
             </div>
-            <div className='form-group'>
+            <div className="form-group">
               <label>ISBN*</label>
-              <input type="text"  required onChange={(event)=>{ setBook({...book, isbn: event.target.value})}} value={book.isbn || ''}></input>
+              <input
+                type="text"
+                required
+                onChange={(event) => {
+                  setBook({ ...book, isbn: event.target.value });
+                }}
+                value={book.isbn || ""}
+              ></input>
             </div>
-            <div className='form-group'>
+            <div className="form-group">
               <label>Publisher*</label>
-              <input type="text"  required onChange={(event)=>{ setBook({...book, publisher: event.target.value})}} value={book.publisher || ''}></input>
+              <input
+                type="text"
+                required
+                onChange={(event) => {
+                  setBook({ ...book, publisher: event.target.value });
+                }}
+                value={book.publisher || ""}
+              ></input>
             </div>
-            <div className='form-group'>
+            <div className="form-group">
               <label>Image</label>
-              <input type="text"  onChange={(event)=>{ setBook({...book, img: event.target.value})}} value={book.img     || ''}></input>
-            </div>  
-          <div className='form-group'>
+              <input
+                type="text"
+                onChange={(event) => {
+                  setBook({ ...book, img: event.target.value });
+                }}
+                value={book.img || ""}
+              ></input>
+            </div>
+            <div className="form-group">
+              <button onClick={() => openModal}>Update Book</button>
+            </div>
 
-          <button onClick={openModal}
-            >Update Book</button>
-          </div>         
+            {isOpenModal === true && (
+          <div className="modal">
+            <h1>Deseja adicionar {book.title}?</h1>
+            <div className="modal_buttons">
+              <button onClick={createBook}>sim</button>
+              <button onClick={closeModal}>não</button>
+            </div>
+            
+          </div>
+        )}
           </form>
         </div>
 
-      {(isOpenModal) && (
-        <div className='modal'>
-        <h1>Deseja adicionar {book.title}?</h1>
-        <div className='modal_buttons'>
-          <button onClick={createBook}>sim</button>
-          <button onClick={closeModal}>não</button>
-        </div>
-        </div>
-      )}
-    
-    </div>
-  </>)
-  
-}
+      </div>
+    </>
+  );
+};
 
-export default BookRegister
+export default BookRegister;
