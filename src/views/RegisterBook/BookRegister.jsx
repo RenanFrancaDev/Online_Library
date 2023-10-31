@@ -1,14 +1,14 @@
-import {useState, useEffect, useRef} from 'react'
+import {useState} from 'react'
 import Header from '../../components/Header/Header'
 import "./index.scss"
 import BookService from '../../api/BookService'
 import Submenu from '../../components/Submenu/Submenu'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const BookRegister = () => {
   
   const [book, setBook] = useState([])
-
+  const navigate = useNavigate()
 
   async function createBook(){
     const body = {
@@ -21,19 +21,15 @@ const BookRegister = () => {
       }
 
     if(book.title!=undefined && book.title!='' && book.pages!=undefined && book.pages!='' && book.isbn !=undefined && book.isbn !='' && book.publisher !=undefined && book.publisher !=''){
-      await BookService.createBook(body)
-      .then(({data})=>{
+      const {data} = await BookService.createBook(body)
+      
+        console.log({data})
+        console.log(data.statusMensagem)
+        alert(console.log(data))
         alert(data.statusMensagem);
-      })
-      .catch(({response:{data,status}})=>{
-        alert(`${status} - ${data}`)      
-      });
     }
+    navigate("/books")
   }
-
-  useEffect(() => {
-    createBook()    
-  },[]) 
 
   return (
   <>
@@ -68,7 +64,9 @@ const BookRegister = () => {
               <input type="text"  onChange={(event)=>{ setBook({...book, img: event.target.value})}} value={book.img     || ''}></input>
             </div>  
           <div className='form-group'>
-          <Link to={'/books'}><button onClick={()=>{
+
+            <Link to="/books">
+          <button onClick={()=>{
               createBook()
             }}>Update Book</button></Link>
           </div>         

@@ -76,9 +76,9 @@ const BookEdit = () => {
               <input type="text"  onChange={(event)=>{ setBook({...book, img: event.target.value})}} value={book.img     || ''}></input>
             </div> 
             <div className='form-group'>
-            <Link to={'/books'}><button onClick={()=>{
+            <button onClick={()=>{
               editBook()
-            }}>Update Book</button></Link>
+            }}>Update Book</button>
             </div>                   
           </form>
           </div>        
