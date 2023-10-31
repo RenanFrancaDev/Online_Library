@@ -22,10 +22,6 @@ const BookRegister = () => {
 
     if(book.title!=undefined && book.title!='' && book.pages!=undefined && book.pages!='' && book.isbn !=undefined && book.isbn !='' && book.publisher !=undefined && book.publisher !=''){
       const {data} = await BookService.createBook(body)
-      
-        console.log({data})
-        console.log(data.statusMensagem)
-        alert(console.log(data))
         alert(data.statusMensagem);
     }
     navigate("/books")
