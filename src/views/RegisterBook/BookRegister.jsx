@@ -3,12 +3,23 @@ import Header from '../../components/Header/Header'
 import "./index.scss"
 import BookService from '../../api/BookService'
 import Submenu from '../../components/Submenu/Submenu'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const BookRegister = () => {
   
   const [book, setBook] = useState([])
   const navigate = useNavigate()
+
+  
+  const[isOpenModal, setIsOpenModal] = useState(false)
+
+  const openModal = () => {
+    setIsOpenModal(true)
+  }
+
+  const closeModal = () => {
+    setIsOpenModal(false)
+  }
 
   async function createBook(){
     const body = {
@@ -61,13 +72,22 @@ const BookRegister = () => {
             </div>  
           <div className='form-group'>
 
-            <Link to="/books">
-          <button onClick={()=>{
-              createBook()
-            }}>Update Book</button></Link>
+          <button onClick={openModal}
+            >Update Book</button>
           </div>         
           </form>
         </div>
+
+      {(isOpenModal) && (
+        <div className='modal'>
+        <h1>Deseja adicionar {book.title}?</h1>
+        <div className='modal_buttons'>
+          <button onClick={createBook}>sim</button>
+          <button onClick={closeModal}>não</button>
+        </div>
+        </div>
+      )}
+    
     </div>
   </>)
   
