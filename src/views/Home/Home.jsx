@@ -34,7 +34,7 @@ const Home = () => {
   return (
     <div className='home'>      
       <Header/>
-      <h1>Fire Development Library Online</h1>
+      <h1>Fire Development Library</h1>
       <div>
         <form>
           <div className="form-group">
