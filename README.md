@@ -20,7 +20,11 @@ https://biblioteca-wine.vercel.app/
 
 ## Status
 
-Project connected to the API, missing route to sign up.
+Project connected to the API, missing...
+- route to sign up
+- cryptography
+- component modal
+- ensure a error mensage type number, in the input pages (register)
 
 ## Installation
 

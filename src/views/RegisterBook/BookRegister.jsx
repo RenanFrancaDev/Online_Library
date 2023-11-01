@@ -4,6 +4,7 @@ import "./index.scss";
 import BookService from "../../api/BookService";
 import Submenu from "../../components/Submenu/Submenu";
 import { useNavigate } from "react-router-dom";
+// import ModalAdd from "../../components/ModalAdd/Modal";
 
 const BookRegister = () => {
   const [book, setBook] = useState([]);
@@ -11,35 +12,19 @@ const BookRegister = () => {
 
   const [isOpenModal, setIsOpenModal] = useState(false);
 
-  const openModal = (e) => {
-    e.preventDefault();
-    if (
-      book.title != undefined &&
-      book.title != "" &&
-      book.pages != undefined &&
-      book.pages != "" &&
-      book.isbn != undefined &&
-      book.isbn != "" &&
-      book.publisher != undefined &&
-      book.publisher != ""
-    ) {
-      setIsOpenModal(true);
-    }
+  const openModal = () => {
+    setIsOpenModal(true);
   };
 
   const closeModal = () => {
     setIsOpenModal(false);
   };
 
-  async function createBook(e) {
-    e.preventDefault()
+  async function createBook() {
     const body = {
-      title: book.title,
-      synopsis: book.synopsis,
-      pages: Number(book.pages),
-      isbn: book.isbn,
-      publisher: book.publisher,
-      img: book.img,
+      title: book.title,synopsis: book.synopsis,
+      pages: Number(book.pages),isbn: book.isbn,
+      publisher: book.publisher, img: book.img,
     };
 
     if (
@@ -54,8 +39,8 @@ const BookRegister = () => {
     ) {
       const { data } = await BookService.createBook(body);
       alert(data.statusMensagem);
+      if (data.statusMensagem) navigate("/books");
     }
-    navigate("/books");
   }
 
   return (
@@ -63,9 +48,13 @@ const BookRegister = () => {
       <Header />
       <Submenu />
       <div className="container_register">
-        <h1>Book Edit</h1>
+        <h1>Book Create</h1>
         <div>
-          <form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+          >
             <div className="form-group">
               <label>Title*</label>
               <input
@@ -131,21 +120,45 @@ const BookRegister = () => {
               ></input>
             </div>
             <div className="form-group">
-              <button onClick={() => openModal}>Update Book</button>
+              <button
+                onClick={() => {
+                  openModal();
+                }}
+              >
+                Update Book
+              </button>
             </div>
+          </form>
+        </div>
 
-            {isOpenModal === true && (
+        {/* <ModalAdd
+        isOpen={isOpenModal}
+        onclose={closeModal}
+        createBook={createBook}
+        book={book}
+        /> */}
+
+        {isOpenModal && (
           <div className="modal">
             <h1>Deseja adicionar {book.title}?</h1>
             <div className="modal_buttons">
-              <button onClick={createBook}>sim</button>
-              <button onClick={closeModal}>não</button>
+              <button
+                onClick={() => {
+                  createBook();
+                }}
+              >
+                sim
+              </button>
+              <button
+                onClick={() => {
+                  closeModal();
+                }}
+              >
+                não
+              </button>
             </div>
-            
           </div>
         )}
-          </form>
-        </div>
 
       </div>
     </>
