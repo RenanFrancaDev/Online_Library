@@ -100,21 +100,21 @@ const Books = () => {
         </ul>
         {isOpenModal && (
             <div className="modal">
-              <h1>Deseja Deletar {bookTitle}?</h1>
+              <h1>Are you sure you want to delete {bookTitle}?</h1>
               <div className="modal_buttons">
                 <button
                   onClick={() => {
                     deleteBook(bookId, bookTitle);
                   }}
                 >
-                  sim
+                  YES
                 </button>
                 <button
                   onClick={() => {
                     closeModal();
                   }}
                 >
-                  não
+                  NO
                 </button>
               </div>
             </div>

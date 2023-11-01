@@ -48,7 +48,7 @@ const BookRegister = () => {
       <Header />
       <Submenu />
       <div className="container_register">
-        <h1>Book Create</h1>
+        <h1>Register Book</h1>
         <div>
           <form
             onSubmit={(e) => {
@@ -140,21 +140,21 @@ const BookRegister = () => {
 
         {isOpenModal && (
           <div className="modal">
-            <h1>Deseja adicionar {book.title}?</h1>
+            <h1>Are you sure you want to register {book.title}?</h1>
             <div className="modal_buttons">
               <button
                 onClick={() => {
                   createBook();
                 }}
               >
-                sim
+                YES
               </button>
               <button
                 onClick={() => {
                   closeModal();
                 }}
               >
-                não
+                NO
               </button>
             </div>
           </div>

@@ -126,11 +126,11 @@
         background-image: linear-gradient(#FFF, $fire-green);
         width: 30%;
         min-width: 270px;
-        height: 40%;
+        height: 50%;
 
         h1{
             font-size: 18px;
-            margin: 20px 10px;
+            margin: 20px 20px ;
         }
 
         &_buttons{
@@ -143,7 +143,7 @@
                 height: 50px;
                 background-color: #FFF;
                 border-radius: 20px;
-                margin-top: 15%;
+                margin-top: 10%;
             }
                 button:hover{
                     cursor: pointer;
